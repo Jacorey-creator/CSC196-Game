@@ -17,6 +17,17 @@
     <ClInclude Include="Time.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="MathUtils.h" />
+    <ClInclude Include="Color.h">
+      <Filter>Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FileIO.cpp">
@@ -25,10 +36,10 @@
     <ClCompile Include="Memory.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Memorey.cpp">
+    <ClCompile Include="Time.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Time.cpp">
+    <ClCompile Include="Transform.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

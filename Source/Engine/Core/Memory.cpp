@@ -1,38 +1,18 @@
-#include "Memory.h"
-#include <iostream>
+
 #include "Memorey.h"
-using namespace std;
-afro::MemoryTracker afro::g_memoryTracker;
+#include <iostream>
 
-void* operator new (size_t size)
+namespace afro
 {
-	void* p = malloc(size);
-	afro::g_memoryTracker.Add(p, size);
-
-	return p;
-}
-
-void operator delete(void* address, size_t size)
-{
-	afro::g_memoryTracker.Remove(address,size);
-	free(address);
-}
-
-namespace afro 
-{
-	void MemoryTracker ::Add(void* address, size_t size) 
+	bool MemoryTracker::Initialize()
 	{
-		m_bytesAllocated += size;
-		m_numAllocated++;
+		_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
+		return true;
 	}
-	void MemoryTracker::Remove(void* address, size_t size)
-	{
-		m_bytesAllocated -= size;
-		m_numAllocated--;
-	}
+
 	void MemoryTracker::DisplayInfo()
 	{
-		cout << "current bytes allocated: " << m_bytesAllocated << endl;
-		cout << "current number allocations: " << m_numAllocated << endl;
+		_CrtMemDumpAllObjectsSince(NULL);
 	}
 }
